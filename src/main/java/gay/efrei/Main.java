@@ -28,6 +28,7 @@ public class Main extends JavaPlugin{
 		getCommand("home").setExecutor(new CommandHome());
 		getCommand("sethome").setExecutor(new CommandSetHome());
 		getCommand("delhome").setExecutor(new CommandDelHome());
+		getCommand("pronouns").setExecutor(new CommandPronouns());
 	}
 
 	private void registerListeners() {

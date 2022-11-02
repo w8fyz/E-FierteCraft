@@ -20,6 +20,14 @@ public class Account {
 		this.homes = homes;
 	}
 	
+	public String getFormatedHomes() {
+		StringBuilder sb = new StringBuilder();
+		getHomes().forEach( h -> {
+			sb.append(", "+h.getName());
+		});
+		return sb.toString().substring(2);
+	}
+	
 	public List<Home> getHomes() {
 		return homes;
 	}
