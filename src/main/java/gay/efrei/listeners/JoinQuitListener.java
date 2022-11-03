@@ -19,7 +19,7 @@ public class JoinQuitListener implements Listener {
 		Account account = Account.get(p.getUniqueId());
 		e.setJoinMessage("§a+ §7"+p.getName());
 		if(account == null) {
-			new Account(p.getUniqueId(), "", new ArrayList<>());
+			new Account(p.getUniqueId(), "", new ArrayList<>(), 0).save();
 			Bukkit.broadcastMessage("§eBienvenue à §6"+p.getName()+" §esur le serveur !");
 		}
 	}

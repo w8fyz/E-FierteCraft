@@ -12,6 +12,7 @@ public class CommandTpa implements CommandExecutor {
 		if(sender instanceof Player) {
 			Player p = (Player)sender;
 			
+			
 		}
 		return false;
 	}

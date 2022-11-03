@@ -3,6 +3,7 @@ package gay.efrei.account;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 import com.google.gson.Gson;
 
@@ -10,14 +11,22 @@ import gay.efrei.utils.data.Data;
 
 public class Account {
 	
+	private static long TP_COOLDOWN = TimeUnit.MINUTES.toMillis(5);
+	
 	private UUID uuid;
 	private String pronouns;
 	private List<Home> homes;
+	private long timestampLastTP;
 	
-	public Account(UUID uuid, String pronouns, List<Home> homes) {
+	public Account(UUID uuid, String pronouns, List<Home> homes, long timestampLastTP) {
 		this.uuid = uuid;
 		this.pronouns = pronouns;
 		this.homes = homes;
+		this.timestampLastTP = timestampLastTP;
+	}
+	
+	public boolean canTeleport() {
+		return System.currentTimeMillis() - timestampLastTP >= TP_COOLDOWN;
 	}
 	
 	public String getFormatedHomes() {
