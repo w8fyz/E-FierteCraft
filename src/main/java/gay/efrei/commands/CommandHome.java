@@ -35,7 +35,7 @@ public class CommandHome implements CommandExecutor, TabExecutor {
 				return false;
 			}
 			p.sendMessage("§6Teleporation vers "+home.getName()+" !");
-			p.teleport(home.getLocation());
+			p.teleport(home.getBukkitLocation());
 			p.playSound(p.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1, 1);
 			
 			

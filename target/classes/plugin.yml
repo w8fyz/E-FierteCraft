@@ -1,5 +1,6 @@
 name: EfierteCraft
 version: 1.0
+api-version: 1.19
 author: Fyz
 main: gay.efrei.Main
 commands:
@@ -8,7 +9,9 @@ commands:
   delhome:
   pronouns:
   tpa:
-  tpayes:
-  tpano:
+  tpyes:
+  tpno:
   tpaccept:
-  tpadeny:
+  tpdeny:
+  tpcancel:
+  tpundo:

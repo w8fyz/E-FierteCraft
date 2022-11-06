@@ -22,7 +22,7 @@ public class CommandTpa implements CommandExecutor {
 				return false;
 			}
 			Player target = Bukkit.getPlayer(args[0]);
-			if (target == null) {
+			if (target == null || !target.isOnline()) {
 				p.sendMessage("§cImpossible de trouver un compte avec ce pseudo connecté.");
 				return false;
 			}
@@ -39,7 +39,13 @@ public class CommandTpa implements CommandExecutor {
 				return false;
 			}
 			TPARequest.make().sender(p).target(target).execute();
+
 			p.sendMessage("§6Requête de téléportation envoyée à §e" + target.getName() + " §6!");
+			p.sendMessage("§6Pour annuler la requête, §e/tpcancel");
+			target.sendMessage("§e" + p.getName() + " §6veux ce téléporter à toi.");
+			target.sendMessage("§e> §a/tpaccept "+p.getName()+" §6pour accepter");
+			target.sendMessage("§e> §c/tpdeny "+p.getName()+" §6pour refuser");
+			target.sendMessage("§6La requête expirera dans §e120 secondes§6.");
 			return true;
 		}
 		return false;

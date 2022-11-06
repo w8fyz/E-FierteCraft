@@ -23,7 +23,7 @@ public class CommandPronouns implements CommandExecutor {
 				return false;
 			}
 			if(args[0].length() > 14) {
-				p.sendMessage("§ceLa taille maximale est de 14 charactères");
+				p.sendMessage("§cLa taille maximale est de 14 charactères");
 				return false;
 			}
 			p.sendMessage("§6Pronoms modifiés !");

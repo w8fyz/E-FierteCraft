@@ -9,13 +9,12 @@ import org.bukkit.entity.Player;
 import gay.efrei.account.Account;
 import gay.efrei.managers.tpa.TPAQuery;
 
-public class CommandTpayes implements CommandExecutor {
+public class CommandTpyes implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (sender instanceof Player) {
 			Player p = (Player) sender;
-			Account account = Account.get(p.getUniqueId());
 			Player targeter = null;
 			if (args.length == 0) {
 				targeter = TPAQuery.get(p).getLatestTargeter();
@@ -26,12 +25,19 @@ public class CommandTpayes implements CommandExecutor {
 				p.sendMessage("§cImpossible de trouver un compte avec ce pseudo connecté.");
 				return false;
 			}
+			if(!targeter.isOnline()) {
+				p.sendMessage("§cLa personne n'est pas connectée.");
+				return false;
+			}
 			if (!TPAQuery.get(p).isRequested(targeter)) {
 				p.sendMessage("§cVous n'avez pas de demande de téléportation de cette personne.");
 				return false;
 			}
-			
-
+			TPAQuery.get(p).getRequested(targeter).delete();
+			Account.get(targeter.getUniqueId()).setLastTP(System.currentTimeMillis()).save();
+			targeter.teleport(p.getLocation().add(0, 0.5, 0));
+			targeter.sendMessage("§6Téléportation vers "+p.getName()+"...");
+			p.sendMessage("§6Téléportation acceptée !");
 		}
 		return false;
 	}

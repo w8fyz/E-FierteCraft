@@ -1,13 +1,14 @@
 package gay.efrei.account;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 public class Home {
 
 	private String name;
-	private Location loc;
+	private HomeLocation loc;
 	
-	public Home(String name, Location loc) {
+	public Home(String name, HomeLocation loc) {
 		this.name = name;
 		this.loc = loc;
 	}
@@ -16,8 +17,12 @@ public class Home {
 		return name;
 	}
 	
-	public Location getLocation() {
+	public HomeLocation getLocation() {
 		return loc;
+	}
+	
+	public Location getBukkitLocation() {
+		return new Location(Bukkit.getWorld(loc.getWorldName()), loc.x(), loc.y(), loc.z(), loc.yaw(), loc.pitch());
 	}
 	
 }

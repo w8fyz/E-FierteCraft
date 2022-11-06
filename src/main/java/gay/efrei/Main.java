@@ -8,8 +8,9 @@ import gay.efrei.commands.CommandHome;
 import gay.efrei.commands.CommandPronouns;
 import gay.efrei.commands.CommandSetHome;
 import gay.efrei.commands.CommandTpa;
-import gay.efrei.commands.CommandTpano;
-import gay.efrei.commands.CommandTpayes;
+import gay.efrei.commands.CommandTpcancel;
+import gay.efrei.commands.CommandTpno;
+import gay.efrei.commands.CommandTpyes;
 import gay.efrei.listeners.JoinQuitListener;
 
 public class Main extends JavaPlugin{
@@ -34,10 +35,12 @@ public class Main extends JavaPlugin{
 		getCommand("delhome").setExecutor(new CommandDelHome());
 		getCommand("pronouns").setExecutor(new CommandPronouns());
 		getCommand("tpa").setExecutor(new CommandTpa());
-		getCommand("tpaccept").setExecutor(new CommandTpayes());
-		getCommand("tpayes").setExecutor(new CommandTpayes());
-		getCommand("tpadeny").setExecutor(new CommandTpano());
-		getCommand("tpano").setExecutor(new CommandTpano());
+		getCommand("tpaccept").setExecutor(new CommandTpyes());
+		getCommand("tpyes").setExecutor(new CommandTpyes());
+		getCommand("tpdeny").setExecutor(new CommandTpno());
+		getCommand("tpno").setExecutor(new CommandTpno());
+		getCommand("tpcancel").setExecutor(new CommandTpcancel());
+		getCommand("tpundo").setExecutor(new CommandTpcancel());
 		
 		getCommand("home").setTabCompleter(new CommandHome());
 		getCommand("delhome").setTabCompleter(new CommandDelHome());

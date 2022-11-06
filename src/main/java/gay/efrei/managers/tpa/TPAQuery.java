@@ -23,7 +23,14 @@ public class TPAQuery {
 				}
 			}
 		}
-		return result.getSender();
+		return result == null ? null : result.getSender();
+	}
+	
+	public TPARequest getRequested(Player p) {
+		for(TPARequest requests : TPARequest.requests) {
+			if(requests.getTarget() == query && requests.getSender() == p) return requests;
+		}
+		return null;
 	}
 	
 	public boolean isRequested(Player p) {
@@ -49,6 +56,25 @@ public class TPAQuery {
 			}
 		}
 		return false;
+	}
+
+	public TPARequest getRequesting(Player p) {
+		for(TPARequest requests : TPARequest.requests) {
+			if(requests.getSender() == query && requests.getTarget() == p) return requests;
+		}
+		return null;
+	}
+
+	public Player getLatestRequested() {
+		TPARequest result = null;
+		for(TPARequest requests : TPARequest.requests) {
+			if(requests.getSender() == query) {
+				if(result == null || result.getTimestamp() < requests.getTimestamp()) {
+					result = requests;
+				}
+			}
+		}
+		return result == null ? null : result.getSender();
 	}
 	
 }

@@ -26,7 +26,11 @@ public class TPARequest {
 	
 	
 	public void execute() {
-		
+		requests.add(this);
+	}
+	
+	public void delete() {
+		requests.remove(this);
 	}
 	
 	public TPARequest sender(Player p) {
@@ -51,6 +55,7 @@ public class TPARequest {
 	public long getTimestamp() {
 		return timestamp;
 	}
+
 	
 
 }
