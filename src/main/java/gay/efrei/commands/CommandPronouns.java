@@ -6,6 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import gay.efrei.account.Account;
+import gay.efrei.managers.player.PlayerDecoration;
 
 public class CommandPronouns implements CommandExecutor {
 
@@ -29,6 +30,7 @@ public class CommandPronouns implements CommandExecutor {
 			p.sendMessage("§6Pronoms modifiés !");
 			account.setPronouns(args[0]);
 			account.save();
+			PlayerDecoration.update(p);
 		}
 		return true;
 	}

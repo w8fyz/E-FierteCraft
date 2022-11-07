@@ -44,8 +44,14 @@ public class AccountAdapter implements JsonSerializer<Account>, JsonDeserializer
 		}
 
 		long timestampLastTP = jsonObject.get("timestampLastTP").getAsLong();
+		
+		List<Integer> badges = new Gson().fromJson(jsonObject.get("badges"), new TypeToken<List<Integer>>() {
+		}.getType());
 
-		return new Account(uuid, pronouns, homes, timestampLastTP);
+		int deaths = jsonObject.get("deaths").getAsInt();
+		int color = jsonObject.get("color").getAsInt();
+		
+		return new Account(uuid, pronouns, homes, timestampLastTP, badges, deaths, color);
 	}
 
 	@Override
@@ -56,12 +62,18 @@ public class AccountAdapter implements JsonSerializer<Account>, JsonDeserializer
 		String pronouns = account.getPronouns();
 		List<Home> homes = account.getHomes();
 		long timestampLastTP = account.getLastTP();
-
+		List<Integer> badges = account.getBadges();
+		int deaths = account.getDeaths();
+		int color = account.getColor();
+		
 		result.add("uuid", context.serialize(uuid));
 		result.add("pronouns", context.serialize(pronouns));
 		result.add("homes", context.serialize(homes));
 		result.add("timestampLastTP", context.serialize(timestampLastTP));
-
+		result.add("badges", context.serialize(badges));
+		result.add("deaths", context.serialize(deaths));
+		result.add("color", context.serialize(color));
+		
 		return result;
 	}
 

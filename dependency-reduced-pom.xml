@@ -4,10 +4,32 @@
   <groupId>EfierteCraft</groupId>
   <artifactId>EfierteCraft</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>3.2.4</version>
+          <executions>
+            <execution>
+              <phase>package</phase>
+              <goals>
+                <goal>shade</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
   <repositories>
     <repository>
       <id>mrcubee-public</id>
       <url>https://nexus.mrcubee.net/repository/minecraft/</url>
+    </repository>
+    <repository>
+      <id>jordanosterberg-repo</id>
+      <url>https://nexus-repo.jordanosterberg.com/repository/maven-releases/</url>
     </repository>
   </repositories>
 </project>

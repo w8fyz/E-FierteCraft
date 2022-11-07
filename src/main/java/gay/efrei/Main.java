@@ -11,7 +11,11 @@ import gay.efrei.commands.CommandTpa;
 import gay.efrei.commands.CommandTpcancel;
 import gay.efrei.commands.CommandTpno;
 import gay.efrei.commands.CommandTpyes;
+import gay.efrei.listeners.DeathListener;
+import gay.efrei.listeners.InteractListener;
 import gay.efrei.listeners.JoinQuitListener;
+import gay.efrei.managers.scoreboard.Board;
+import gay.efrei.managers.scoreboard.BoardTask;
 
 public class Main extends JavaPlugin{
 	
@@ -27,6 +31,9 @@ public class Main extends JavaPlugin{
 		
 		registerListeners();
 		registerCommands();
+		
+		Board.init();
+		new BoardTask().runTaskTimer(this, 10, 10);
 	}
 
 	private void registerCommands() {
@@ -47,7 +54,9 @@ public class Main extends JavaPlugin{
 	}
 
 	private void registerListeners() {
+		Bukkit.getPluginManager().registerEvents(new InteractListener(), this);
 		Bukkit.getPluginManager().registerEvents(new JoinQuitListener(), this);
+		Bukkit.getPluginManager().registerEvents(new DeathListener(), this);
 	}
 
 }

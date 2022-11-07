@@ -21,13 +21,41 @@ public class Account {
 	private String pronouns;
 	private List<Home> homes;
 	private long timestampLastTP;
+	private List<Integer> badges;
+	private int deaths, color;
 	
-	public Account(UUID uuid, String pronouns, List<Home> homes, long timestampLastTP) {
+	public Account(UUID uuid, String pronouns, List<Home> homes, long timestampLastTP, List<Integer> badges, int deaths, int color) {
 		this.uuid = uuid;
+		this.color = color;
 		this.pronouns = pronouns;
 		this.homes = homes;
 		this.timestampLastTP = timestampLastTP;
+		this.badges = badges;
+		this.deaths = deaths;
 	}
+	
+	public Account setColor(int i) {
+		this.color = i;
+		return this;
+	}
+	
+	public int getColor() {
+		return color;
+	}
+	
+	public int getDeaths() {
+		return deaths;
+	}
+	
+	public Account setDeaths(int deaths) {
+		this.deaths = deaths;
+		return this;
+	}
+	
+	public List<Integer> getBadges() {
+		return badges;
+	}
+	
 	
 	public UUID getUUID() {
 		return uuid;
