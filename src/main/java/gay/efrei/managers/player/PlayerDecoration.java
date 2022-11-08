@@ -22,8 +22,8 @@ public class PlayerDecoration {
 
 		final Team team = scoreBoard.getTeam(id);
 
-		team.setPrefix("§3"+account.getPronouns()+ (account.getPronouns().length() == 0 ? "" : " "));
-		team.setSuffix(" §8[§7"+account.getDeaths()+"]§8");
+		team.setPrefix(account.getColor()+account.getPronouns()+ (account.getPronouns().length() == 0 ? "" : " "));
+		team.setSuffix(" ï¿½8[ï¿½7"+account.getDeaths()+"]ï¿½8");
 		team.addPlayer(p);
 
 		p.setScoreboard(scoreBoard);
