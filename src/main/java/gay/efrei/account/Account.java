@@ -11,6 +11,7 @@ import com.google.common.io.Files;
 import gay.efrei.Main;
 import gay.efrei.account.json.AccountJson;
 import gay.efrei.managers.tpa.TPARequest;
+import gay.efrei.utils.ColorsItem;
 import gay.efrei.utils.data.Data;
 
 public class Account {
@@ -18,14 +19,15 @@ public class Account {
 
 	
 	private UUID uuid;
-	private String pronouns;
+	private String pronouns, discordID;
 	private List<Home> homes;
 	private long timestampLastTP;
 	private List<Integer> badges;
 	private int deaths, color;
 	
-	public Account(UUID uuid, String pronouns, List<Home> homes, long timestampLastTP, List<Integer> badges, int deaths, int color) {
+	public Account(UUID uuid, String pronouns, List<Home> homes, long timestampLastTP, List<Integer> badges, int deaths, int color, String discordID) {
 		this.uuid = uuid;
+		this.discordID = discordID;
 		this.color = color;
 		this.pronouns = pronouns;
 		this.homes = homes;
@@ -34,9 +36,27 @@ public class Account {
 		this.deaths = deaths;
 	}
 	
+	public String getDiscordID() {
+		return discordID;
+	}
+	
+	public Account setDiscordID(String discordID) {
+		this.discordID = discordID;
+		return this;
+	}
+	
+	public boolean isLinked() {
+		return discordID != null;
+	}
+	
 	public Account setColor(int i) {
 		this.color = i;
 		return this;
+	}
+	
+	
+	public String getFormatedColor() {
+		return ColorsItem.getColorFromID(color).getChatColor();
 	}
 	
 	public int getColor() {

@@ -50,8 +50,9 @@ public class AccountAdapter implements JsonSerializer<Account>, JsonDeserializer
 
 		int deaths = jsonObject.get("deaths").getAsInt();
 		int color = jsonObject.get("color").getAsInt();
+		String discordID = jsonObject.get("discordID").getAsString();
 		
-		return new Account(uuid, pronouns, homes, timestampLastTP, badges, deaths, color);
+		return new Account(uuid, pronouns, homes, timestampLastTP, badges, deaths, color, discordID);
 	}
 
 	@Override
@@ -65,6 +66,7 @@ public class AccountAdapter implements JsonSerializer<Account>, JsonDeserializer
 		List<Integer> badges = account.getBadges();
 		int deaths = account.getDeaths();
 		int color = account.getColor();
+		String discordID = account.getDiscordID();
 		
 		result.add("uuid", context.serialize(uuid));
 		result.add("pronouns", context.serialize(pronouns));
@@ -73,6 +75,7 @@ public class AccountAdapter implements JsonSerializer<Account>, JsonDeserializer
 		result.add("badges", context.serialize(badges));
 		result.add("deaths", context.serialize(deaths));
 		result.add("color", context.serialize(color));
+		result.add("discordID", context.serialize(discordID));
 		
 		return result;
 	}
