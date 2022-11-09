@@ -13,6 +13,11 @@
 			<id>jordanosterberg-repo</id>
 			<url>https://nexus-repo.jordanosterberg.com/repository/maven-releases/</url>
 		</repository>
+		<repository>
+			<id>dv8tion</id>
+			<name>m2-dv8tion</name>
+			<url>https://m2.dv8tion.net/releases</url>
+		</repository>
 	</repositories>
 
 	<dependencies>
@@ -29,7 +34,7 @@
 		<dependency>
 			<groupId>net.dv8tion</groupId>
 			<artifactId>JDA</artifactId>
-			<version>5.0.0-alpha.22</version>
+			<version>5.0.0-alpha.12</version>
 		</dependency>
 	</dependencies>
 
