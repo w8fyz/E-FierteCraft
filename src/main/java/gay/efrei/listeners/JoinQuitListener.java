@@ -1,7 +1,5 @@
 package gay.efrei.listeners;
 
-import java.util.ArrayList;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -20,14 +18,14 @@ public class JoinQuitListener implements Listener {
 	public void onJoin(PlayerJoinEvent e) {
 		Player p = e.getPlayer();
 		Account account = Account.get(p.getUniqueId());
-		e.setJoinMessage("ï¿½a+ ï¿½7"+p.getName());
-		if(account == null) {
-			new Account(p.getUniqueId(), "", new ArrayList<>(), 0, new ArrayList<>(), 0, 0, null).save();
+		e.setJoinMessage("§a+ §7"+p.getName());
+		if(account.getPlayCount() == 0) {
 			Bukkit.getOnlinePlayers().forEach(pls ->  {
 				pls.playSound(pls.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
 			});
-			Bukkit.broadcastMessage("ï¿½eBienvenue ï¿½ ï¿½6"+p.getName()+" ï¿½esur le serveur !");
+			Bukkit.broadcastMessage("§eBienvenue à §6"+p.getName()+" §esur le serveur !");
 		}
+		account.addPlayCount().save();
 		Board.set(p);
 		PlayerDecoration.update(p);
 	}
@@ -35,7 +33,7 @@ public class JoinQuitListener implements Listener {
 	@EventHandler
 	public void onQuit(PlayerQuitEvent e) {
 		Player p = e.getPlayer();
-		e.setQuitMessage("ï¿½c- ï¿½7"+p.getName());
+		e.setQuitMessage("§c- §7"+p.getName());
 	}
 
 }

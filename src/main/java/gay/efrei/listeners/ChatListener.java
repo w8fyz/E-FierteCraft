@@ -12,7 +12,7 @@ public class ChatListener implements Listener {
 	@EventHandler
 	public void onChat(AsyncPlayerChatEvent e) {
 		Account account = Account.get(e.getPlayer().getUniqueId());
-		e.setFormat(account.getFormatedColor()+e.getPlayer().getName()+"ยง7: "+e.getMessage());
+		e.setFormat(account.getFormatedColor()+e.getPlayer().getName()+"ง7: "+e.getMessage());
 	
 		Discord.sendChatMessage("**"+e.getPlayer().getName()+"**: "+e.getMessage());
 	}

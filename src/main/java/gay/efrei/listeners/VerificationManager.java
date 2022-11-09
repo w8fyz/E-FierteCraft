@@ -13,11 +13,11 @@ public class VerificationManager implements Listener {
 	@EventHandler
 	public void onLogin(AsyncPlayerPreLoginEvent event) {
 		Account account = Account.get(event.getUniqueId());
-		if (!account.isLinked()) {
+		if (account == null) {
 			event.disallow(Result.KICK_OTHER,
-					"Â§eBienvenue sur le serveur !\nÂ§6Pour des raisons de sÃ©curitÃ©, vous devez lier votre discord Ã  votre compte minecraft.\n\nÂ§eÂ§l"
-							+ Link.getNewVerificationCode(event.getUniqueId())
-							+ "\n\nÂ§6est votre code Ã  rentrer dans le salon link du Discord  Vous pourrez en suite vous reconnecter.");
+					"§eBienvenue sur le serveur !\n\n§fPour des raisons de sécurité, vous devez lier votre discord à votre compte minecraft.\n\n§e§l"
+							+"§7--------\n§e§l"+ Link.getNewVerificationCode(event.getUniqueId())+"\n§7--------"
+							+ "\n\n§fest votre §ecode §fà rentrer dans le §esalon link du Discord.§f Vous pourrez en suite vous reconnecter.");
 		}
 	}
 

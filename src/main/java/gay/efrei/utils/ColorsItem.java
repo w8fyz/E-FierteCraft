@@ -2,31 +2,31 @@ package gay.efrei.utils;
 
 import java.util.Arrays;
 
-import org.bukkit.DyeColor;
+import org.bukkit.Material;
 
 public enum ColorsItem {
 	
-	BLACK(0, DyeColor.BLACK, "ยง0"),
-	BLUE(1, DyeColor.BLUE, "ยง1"),
-	CYAN(2, DyeColor.CYAN, "ยง3"),
-	GRAY(3, DyeColor.GRAY, "ยง8"),
-	GREEN(4, DyeColor.GREEN, "ยง2"),
-	LIGHT_BLUE(5, DyeColor.LIGHT_BLUE, "ยง9"),
-	LIGHT_GRAY(6, DyeColor.LIGHT_GRAY, "ยง7"),
-	LIME(7, DyeColor.LIME, "ยงa"),
-	ORANGE(9, DyeColor.ORANGE, "ยง6"),
-	PINK(10, DyeColor.PINK, "ยงd"),
-	PURPLE(11, DyeColor.PURPLE, "ยง5"),
-	RED(12, DyeColor.RED, "ยงc"),
-	WHITE(13, DyeColor.WHITE, "ยงf"),
-	YELLOW(14, DyeColor.YELLOW, "&e");
+	BLACK(0, Material.INK_SAC, "ง0"),
+	BLUE(1, Material.BLUE_DYE, "ง1"),
+	CYAN(2, Material.CYAN_DYE, "ง3"),
+	GRAY(3, Material.GRAY_DYE, "ง8"),
+	GREEN(4, Material.GREEN_DYE, "ง2"),
+	LIGHT_BLUE(5, Material.LIGHT_BLUE_DYE, "ง9"),
+	LIGHT_GRAY(6, Material.LIGHT_GRAY_DYE, "ง7"),
+	LIME(7, Material.LIME_DYE, "งa"),
+	ORANGE(9, Material.ORANGE_DYE, "ง6"),
+	PINK(10, Material.PINK_DYE, "งd"),
+	PURPLE(11, Material.PURPLE_DYE, "ง5"),
+	RED(12, Material.RED_DYE, "งc"),
+	WHITE(13, Material.WHITE_DYE, "งf"),
+	YELLOW(14, Material.YELLOW_DYE, "งe");
 
 	private int id;
-	private DyeColor color;
+	private Material dye;
 	private String chatColor; 
 
-	ColorsItem(int id, DyeColor color, String chatColor) {
-		this.color = color;
+	ColorsItem(int id, Material dye, String chatColor) {
+		this.dye = dye;
 		this.id = id;
 		this.chatColor = chatColor;
 	}
@@ -35,16 +35,16 @@ public enum ColorsItem {
 		return id;
 	}
 
-	public DyeColor getColor() {
-		return color;
+	public Material getDye() {
+		return dye;
 	}
 
 	public String getChatColor() {
 		return chatColor;
 	}
 
-	public static ColorsItem getColorFromItem(DyeColor color) {
-		return Arrays.stream(values()).filter(c -> c.getColor() == color).findAny().orElse(null);
+	public static ColorsItem getColorFromItem(Material color) {
+		return Arrays.stream(values()).filter(c -> c.getDye() == color).findAny().orElse(null);
 	}
 
 	public static ColorsItem getColorFromID(int color) {

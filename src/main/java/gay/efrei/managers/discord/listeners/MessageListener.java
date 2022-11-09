@@ -10,8 +10,8 @@ public class MessageListener extends ListenerAdapter{
 
 	@Override
 	public void onMessageReceived(MessageReceivedEvent e) {
-		if(e.getChannel().getId().equals(Main.getInstance().getConfig().getString("channel_link"))) {
-			Bukkit.broadcastMessage("ยงb"+e.getMember().getNickname()+"ยง7: "+e.getMessage().getContentRaw());
+		if(e.getChannel().getId().equals(Main.getInstance().getConfig().getString("channel_link")) && !e.getAuthor().isBot()) {
+			Bukkit.broadcastMessage("ง7[D]งb"+e.getMember().getEffectiveName()+"ง7: "+e.getMessage().getContentRaw());
 		}
 	}
 	

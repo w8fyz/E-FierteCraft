@@ -23,7 +23,7 @@ public class PlayerDecoration {
 		final Team team = scoreBoard.getTeam(id);
 
 		team.setPrefix(account.getFormatedColor()+account.getPronouns()+ (account.getPronouns().length() == 0 ? "" : " "));
-		team.setSuffix(" ï¿½8[ï¿½7"+account.getDeaths()+"]ï¿½8");
+		team.setSuffix(" §8[§7"+account.getBadges().size()+"§8]");
 		team.addPlayer(p);
 
 		p.setScoreboard(scoreBoard);

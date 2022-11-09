@@ -12,8 +12,6 @@ public class DeathListener implements Listener {
 	
 	@EventHandler
 	public void onDeath(PlayerDeathEvent e) {
-		e.setDeathMessage("�7"+e.getDeathMessage());
-		
 		Account account = Account.get(e.getEntity().getUniqueId());
 		account.setDeaths(account.getDeaths()+1);
 		account.save();
@@ -21,6 +19,7 @@ public class DeathListener implements Listener {
 		PlayerDecoration.update(e.getEntity());
 		
 		Discord.sendChatMessage("💀 **"+e.getDeathMessage()+"**");
+		e.setDeathMessage("§7"+e.getDeathMessage());
 	}
 
 }

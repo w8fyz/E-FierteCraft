@@ -16,6 +16,7 @@ import gay.efrei.listeners.DeathListener;
 import gay.efrei.listeners.InteractListener;
 import gay.efrei.listeners.JoinQuitListener;
 import gay.efrei.listeners.VerificationManager;
+import gay.efrei.managers.discord.Discord;
 import gay.efrei.managers.scoreboard.Board;
 import gay.efrei.managers.scoreboard.BoardTask;
 
@@ -30,14 +31,15 @@ public class Main extends JavaPlugin{
 	@Override
 	public void onEnable() {
 		INSTANCE = this;
+		saveDefaultConfig();
 		
 		registerListeners();
 		registerCommands();
 		
 		Board.init();
+		Discord.init();
 		new BoardTask().runTaskTimer(this, 10, 10);
 		
-		saveDefaultConfig();
 	}
 
 	private void registerCommands() {

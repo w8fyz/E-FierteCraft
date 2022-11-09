@@ -1,5 +1,6 @@
 package gay.efrei.managers.discord.listeners;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 import gay.efrei.Main;
@@ -16,7 +17,8 @@ public class VerificationChannelListener extends ListenerAdapter{
 			UUID uuid = Link.isValidCode(e.getMessage().getContentRaw());
 			e.getMessage().delete().queue();
 			if(uuid != null) {
-				e.getAuthor().openPrivateChannel().flatMap(channel -> channel.sendMessage("**Tu peux dÃ©sormais accÃ©der au serveur Minecraft de E-FiertÃ© !**")) .queue();
+				new Account(uuid, "", new ArrayList<>(), 0, new ArrayList<>(), 0, 2, "", 0).save();
+				e.getAuthor().openPrivateChannel().flatMap(channel -> channel.sendMessage("**Tu peux désormais accéder au serveur Minecraft de E-Fierté !**")) .queue();
 				Link.remove(e.getMessage().getContentRaw());
 				Account.get(uuid).setDiscordID(e.getAuthor().getId()).save();
 			}

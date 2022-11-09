@@ -23,10 +23,11 @@ public class Account {
 	private List<Home> homes;
 	private long timestampLastTP;
 	private List<Integer> badges;
-	private int deaths, color;
+	private int deaths, color, playCount;
 	
-	public Account(UUID uuid, String pronouns, List<Home> homes, long timestampLastTP, List<Integer> badges, int deaths, int color, String discordID) {
+	public Account(UUID uuid, String pronouns, List<Home> homes, long timestampLastTP, List<Integer> badges, int deaths, int color, String discordID, int playCount) {
 		this.uuid = uuid;
+		this.playCount = playCount;
 		this.discordID = discordID;
 		this.color = color;
 		this.pronouns = pronouns;
@@ -34,6 +35,15 @@ public class Account {
 		this.timestampLastTP = timestampLastTP;
 		this.badges = badges;
 		this.deaths = deaths;
+	}
+	
+	public int getPlayCount() {
+		return playCount;
+	}
+	
+	public Account addPlayCount() {
+		playCount++;
+		return this;
 	}
 	
 	public String getDiscordID() {
@@ -46,7 +56,7 @@ public class Account {
 	}
 	
 	public boolean isLinked() {
-		return discordID != null;
+		return discordID.length()>0;
 	}
 	
 	public Account setColor(int i) {
