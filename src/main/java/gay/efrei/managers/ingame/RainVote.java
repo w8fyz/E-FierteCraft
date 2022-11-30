@@ -13,7 +13,7 @@ public class RainVote {
 	private static int goal = 0;
 
 	public static int start() {
-		goal = (int)Math.floor(Bukkit.getOnlinePlayers().size());
+		goal = (int)Math.floor(Bukkit.getOnlinePlayers().size()/2);
 		voters.clear();
 		return goal;
 	}
