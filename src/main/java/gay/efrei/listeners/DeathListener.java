@@ -6,7 +6,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 
 import gay.efrei.account.Account;
 import gay.efrei.managers.discord.Discord;
-import gay.efrei.managers.ingame.DeathChest;
+import gay.efrei.managers.ingame.DeathTracker;
 import gay.efrei.managers.player.PlayerDecoration;
 
 public class DeathListener implements Listener {
@@ -21,8 +21,8 @@ public class DeathListener implements Listener {
 		
 		Discord.sendChatMessage("💀 **"+e.getDeathMessage()+"**");
 		e.setDeathMessage("§7"+e.getDeathMessage());
+		DeathTracker.deaths.put(e.getEntity(), e.getEntity().getLocation());
 		
-		DeathChest.generate(e.getEntity());
 	}
 
 }

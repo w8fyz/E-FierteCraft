@@ -16,6 +16,7 @@ import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
 import gay.efrei.account.Account;
+import gay.efrei.account.Badges;
 import gay.efrei.account.Home;
 
 public class AccountAdapter implements JsonSerializer<Account>, JsonDeserializer<Account> {
@@ -45,7 +46,7 @@ public class AccountAdapter implements JsonSerializer<Account>, JsonDeserializer
 
 		long timestampLastTP = jsonObject.get("timestampLastTP").getAsLong();
 		
-		List<Integer> badges = new Gson().fromJson(jsonObject.get("badges"), new TypeToken<List<Integer>>() {
+		List<Badges> badges = new Gson().fromJson(jsonObject.get("badges"), new TypeToken<List<Badges>>() {
 		}.getType());
 
 		int deaths = jsonObject.get("deaths").getAsInt();
@@ -64,7 +65,7 @@ public class AccountAdapter implements JsonSerializer<Account>, JsonDeserializer
 		String pronouns = account.getPronouns();
 		List<Home> homes = account.getHomes();
 		long timestampLastTP = account.getLastTP();
-		List<Integer> badges = account.getBadges();
+		List<Badges> badges = account.getBadges();
 		int deaths = account.getDeaths();
 		int color = account.getColor();
 		String discordID = account.getDiscordID();

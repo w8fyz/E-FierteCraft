@@ -3,6 +3,7 @@ package gay.efrei;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import gay.efrei.commands.CommandBadge;
 import gay.efrei.commands.CommandDelHome;
 import gay.efrei.commands.CommandHome;
 import gay.efrei.commands.CommandPronouns;
@@ -13,7 +14,6 @@ import gay.efrei.commands.CommandTpno;
 import gay.efrei.commands.CommandTpyes;
 import gay.efrei.commands.CommandVoteRain;
 import gay.efrei.listeners.ChatListener;
-import gay.efrei.listeners.DeathChestListener;
 import gay.efrei.listeners.DeathListener;
 import gay.efrei.listeners.InteractListener;
 import gay.efrei.listeners.JoinQuitListener;
@@ -39,6 +39,7 @@ public class Main extends JavaPlugin{
 		registerCommands();
 		
 		Discord.init();
+		
 		new BoardTask().runTaskTimer(this, 10, 10);	
 	}
 	
@@ -60,7 +61,7 @@ public class Main extends JavaPlugin{
 		getCommand("tpcancel").setExecutor(new CommandTpcancel());
 		getCommand("tpundo").setExecutor(new CommandTpcancel());
 		getCommand("voterain").setExecutor(new CommandVoteRain());
-		
+		getCommand("badge").setExecutor(new CommandBadge());
 		getCommand("home").setTabCompleter(new CommandHome());
 		getCommand("delhome").setTabCompleter(new CommandDelHome());
 	}
@@ -71,7 +72,6 @@ public class Main extends JavaPlugin{
 		Bukkit.getPluginManager().registerEvents(new InteractListener(), this);
 		Bukkit.getPluginManager().registerEvents(new JoinQuitListener(), this);
 		Bukkit.getPluginManager().registerEvents(new DeathListener(), this);
-		Bukkit.getPluginManager().registerEvents(new DeathChestListener(), this);
 		Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
 	}
 

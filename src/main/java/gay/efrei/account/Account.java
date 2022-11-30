@@ -22,10 +22,10 @@ public class Account {
 	private String pronouns, discordID;
 	private List<Home> homes;
 	private long timestampLastTP;
-	private List<Integer> badges;
+	private List<Badges> badges;
 	private int deaths, color, playCount;
 	
-	public Account(UUID uuid, String pronouns, List<Home> homes, long timestampLastTP, List<Integer> badges, int deaths, int color, String discordID, int playCount) {
+	public Account(UUID uuid, String pronouns, List<Home> homes, long timestampLastTP, List<Badges> badges, int deaths, int color, String discordID, int playCount) {
 		this.uuid = uuid;
 		this.playCount = playCount;
 		this.discordID = discordID;
@@ -82,7 +82,7 @@ public class Account {
 		return this;
 	}
 	
-	public List<Integer> getBadges() {
+	public List<Badges> getBadges() {
 		return badges;
 	}
 	

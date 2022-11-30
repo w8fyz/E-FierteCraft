@@ -14,6 +14,7 @@ public class RainVote {
 
 	public static int start() {
 		goal = (int)Math.floor(Bukkit.getOnlinePlayers().size()/2);
+		if(goal == 0) goal = 1;
 		voters.clear();
 		return goal;
 	}
