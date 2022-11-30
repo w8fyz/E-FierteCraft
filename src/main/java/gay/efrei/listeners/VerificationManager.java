@@ -15,9 +15,9 @@ public class VerificationManager implements Listener {
 		Account account = Account.get(event.getUniqueId());
 		if (account == null) {
 			event.disallow(Result.KICK_OTHER,
-					"§eBienvenue sur le serveur !\n\n§fPour des raisons de sécurité, vous devez lier votre discord à votre compte minecraft.\n\n§e§l"
-							+"§7--------\n§e§l"+ Link.getNewVerificationCode(event.getUniqueId())+"\n§7--------"
-							+ "\n\n§fest votre §ecode §fà rentrer dans le §esalon link du Discord.§f Vous pourrez en suite vous reconnecter.");
+					"Â§eBienvenue sur le serveur !\n\nÂ§fPour des raisons de sÃ©curitÃ©, vous devez lier votre discord Ã  votre compte minecraft.\n\nÂ§eÂ§l"
+							+"Â§7--------\nÂ§eÂ§l"+ Link.getNewVerificationCode(event.getUniqueId())+"\nÂ§7--------"
+							+ "\n\nÂ§fest votre Â§ecode Â§fÃ  rentrer dans le Â§esalon link du Discord.Â§f Vous pourrez en suite vous reconnecter.");
 		}
 	}
 

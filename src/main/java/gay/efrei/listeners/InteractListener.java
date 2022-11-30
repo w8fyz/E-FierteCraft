@@ -24,7 +24,7 @@ public class InteractListener implements Listener {
 				if (color != null) {
 					Account.get(event.getPlayer().getUniqueId()).setColor(color.getID()).save();
 					PlayerDecoration.update(event.getPlayer());
-					event.getPlayer().sendMessage("§eLa couleur de tes pronoms a été changée, comme par magie !");
+					event.getPlayer().sendMessage("Â§eLa couleur de tes pronoms a Ã©tÃ© changÃ©e, comme par magie !");
 					hand.setAmount(hand.getAmount() - 1);
 					event.getPlayer().getInventory().setItemInMainHand(hand);
 					;

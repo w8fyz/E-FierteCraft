@@ -20,12 +20,12 @@ public class JoinQuitListener implements Listener {
 	public void onJoin(PlayerJoinEvent e) {
 		Player p = e.getPlayer();
 		Account account = Account.get(p.getUniqueId());
-		e.setJoinMessage("§a+ §7"+p.getName());
+		e.setJoinMessage("Â§a+ Â§7"+p.getName());
 		if(account.getPlayCount() == 0) {
 			Bukkit.getOnlinePlayers().forEach(pls ->  {
 				pls.playSound(pls.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
 			});
-			Bukkit.broadcastMessage("§eBienvenue à §6"+p.getName()+" §esur le serveur !");
+			Bukkit.broadcastMessage("Â§eBienvenue Ã  Â§6"+p.getName()+" Â§esur le serveur !");
 			p.getInventory().addItem(new ItemStack(Material.COOKED_BEEF, 32));
 		}
 		account.addPlayCount().save();
@@ -36,7 +36,7 @@ public class JoinQuitListener implements Listener {
 	@EventHandler
 	public void onQuit(PlayerQuitEvent e) {
 		Player p = e.getPlayer();
-		e.setQuitMessage("§c- §7"+p.getName());
+		e.setQuitMessage("Â§c- Â§7"+p.getName());
 	}
 
 }

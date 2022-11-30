@@ -21,19 +21,19 @@ public class CommandTpno implements CommandExecutor {
 				targeter = Bukkit.getPlayer(args[0]);
 			}
 			if (targeter == null) {
-				p.sendMessage("§cImpossible de trouver un compte avec ce pseudo connecté.");
+				p.sendMessage("Â§cImpossible de trouver un compte avec ce pseudo connectÃ©.");
 				return false;
 			}
 			if(!targeter.isOnline()) {
-				p.sendMessage("§cLa personne n'est pas connectée.");
+				p.sendMessage("Â§cLa personne n'est pas connectÃ©e.");
 				return false;
 			}
 			if (!TPAQuery.get(p).isRequested(targeter)) {
-				p.sendMessage("§cVous n'avez pas de demande de téléportation de cette personne.");
+				p.sendMessage("Â§cVous n'avez pas de demande de tÃ©lÃ©portation de cette personne.");
 				return false;
 			}
 			TPAQuery.get(p).getRequested(targeter).delete();
-			p.sendMessage("§6Téléportation refusée.");
+			p.sendMessage("Â§6TÃ©lÃ©portation refusÃ©e.");
 
 		}
 		return false;

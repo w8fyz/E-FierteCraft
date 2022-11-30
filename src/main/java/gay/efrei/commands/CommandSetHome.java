@@ -17,14 +17,14 @@ public class CommandSetHome implements CommandExecutor {
 			Player p = (Player) sender;
 			Account account = Account.get(p.getUniqueId());
 			if (args.length < 1) {
-				p.sendMessage("§cFormat de la commande : /sethome [nom du home].");
+				p.sendMessage("Â§cFormat de la commande : /sethome [nom du home].");
 				return false;
 			}
 			if (account.getHomeByName(args[0]) != null) {
 				account.getHomes().remove(account.getHomeByName(args[0]));
 			} else {
 				if (account.getHomes().size() >= 3) {
-					p.sendMessage("§cLe nombre maximal de homes est de 3.");
+					p.sendMessage("Â§cLe nombre maximal de homes est de 3.");
 					return false;
 				}
 			}
@@ -35,7 +35,7 @@ public class CommandSetHome implements CommandExecutor {
 									p.getLocation().getY(), p.getLocation().getZ(), p.getLocation().getYaw(),
 									p.getLocation().getPitch())));
 			account.save();
-			p.sendMessage("§aTon home a été créé avec succès !");
+			p.sendMessage("Â§aTon home a Ã©tÃ© crÃ©Ã© avec succÃ¨s !");
 		}
 		return true;
 	}

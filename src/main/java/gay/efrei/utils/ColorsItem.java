@@ -6,20 +6,20 @@ import org.bukkit.Material;
 
 public enum ColorsItem {
 	
-	BLACK(0, Material.BLACK_DYE, "ง0"),
-	BLUE(1, Material.BLUE_DYE, "ง1"),
-	CYAN(2, Material.CYAN_DYE, "ง3"),
-	GRAY(3, Material.GRAY_DYE, "ง8"),
-	GREEN(4, Material.GREEN_DYE, "ง2"),
-	LIGHT_BLUE(5, Material.LIGHT_BLUE_DYE, "ง9"),
-	LIGHT_GRAY(6, Material.GRAY_DYE, "ง7"),
-	LIME(7, Material.LIME_DYE, "งa"),
-	ORANGE(9, Material.ORANGE_DYE, "ง6"),
-	PINK(10, Material.PINK_DYE, "งd"),
-	PURPLE(11, Material.PURPLE_DYE, "ง5"),
-	RED(12, Material.RED_DYE, "งc"),
-	WHITE(13, Material.WHITE_DYE, "งf"),
-	YELLOW(14, Material.YELLOW_DYE, "งe");
+	BLACK(0, Material.BLACK_DYE, "ยง0"),
+	BLUE(1, Material.BLUE_DYE, "ยง1"),
+	CYAN(2, Material.CYAN_DYE, "ยง3"),
+	GRAY(3, Material.GRAY_DYE, "ยง8"),
+	GREEN(4, Material.GREEN_DYE, "ยง2"),
+	LIGHT_BLUE(5, Material.LIGHT_BLUE_DYE, "ยง9"),
+	LIGHT_GRAY(6, Material.GRAY_DYE, "ยง7"),
+	LIME(7, Material.LIME_DYE, "ยงa"),
+	ORANGE(9, Material.ORANGE_DYE, "ยง6"),
+	PINK(10, Material.PINK_DYE, "ยงd"),
+	PURPLE(11, Material.PURPLE_DYE, "ยง5"),
+	RED(12, Material.RED_DYE, "ยงc"),
+	WHITE(13, Material.WHITE_DYE, "ยงf"),
+	YELLOW(14, Material.YELLOW_DYE, "ยงe");
 
 	private int id;
 	private Material dye;

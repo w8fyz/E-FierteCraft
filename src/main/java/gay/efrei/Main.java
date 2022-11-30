@@ -44,7 +44,7 @@ public class Main extends JavaPlugin{
 	
 	@Override
 	public void onDisable() {
-		Discord.sendChatMessage(":red_circle: **Serveur éteint**");
+		Discord.sendChatMessage(":red_circle: **Serveur Ã©teint**");
 	}
 
 	private void registerCommands() {

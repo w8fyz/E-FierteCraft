@@ -26,7 +26,7 @@ public class DeathChestListener implements Listener {
 				return;
 			}
 			if(!cd.getUUID().equals(event.getPlayer().getUniqueId())) {
-				event.getPlayer().sendMessage("§cCe n'est pas ta tombe.");
+				event.getPlayer().sendMessage("Â§cCe n'est pas ta tombe.");
 				return;
 			}
 				event.getClickedBlock().getWorld().playSound(event.getClickedBlock().getLocation(), Sound.ITEM_TOTEM_USE, 1, 1);

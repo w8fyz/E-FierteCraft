@@ -14,14 +14,14 @@ public class CommandVoteRain implements CommandExecutor {
 		if(sender instanceof Player) {
 			Player p = (Player)sender;
 			if(!RainVote.isVoteStarted()) {
-				p.sendMessage("§cAucun vote n'est en cours.");
+				p.sendMessage("Â§cAucun vote n'est en cours.");
 				return false;
 			}
 			if(!RainVote.vote(p)) {
-				p.sendMessage("§cTon vote a déjà été pris en compte.");
+				p.sendMessage("Â§cTon vote a dÃ©jÃ  Ã©tÃ© pris en compte.");
 				return false;
 			}
-			p.sendMessage("§bTon vote a bien été pris en compte pour couper la pluie !");
+			p.sendMessage("Â§bTon vote a bien Ã©tÃ© pris en compte pour couper la pluie !");
 		}
 		return true;
 	}

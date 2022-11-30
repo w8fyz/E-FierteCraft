@@ -18,7 +18,7 @@ public class VerificationChannelListener extends ListenerAdapter{
 			e.getMessage().delete().queue();
 			if(uuid != null) {
 				new Account(uuid, "", new ArrayList<>(), 0, new ArrayList<>(), 0, 2, "", 0).save();
-				e.getAuthor().openPrivateChannel().flatMap(channel -> channel.sendMessage("**Tu peux dÈsormais accÈder au serveur Minecraft de E-FiertÈ !**")) .queue();
+				e.getAuthor().openPrivateChannel().flatMap(channel -> channel.sendMessage("**Tu peux d√©sormais acc√©der au serveur Minecraft de E-Fiert√© !**")) .queue();
 				Link.remove(e.getMessage().getContentRaw());
 				Account.get(uuid).setDiscordID(e.getAuthor().getId()).save();
 			}

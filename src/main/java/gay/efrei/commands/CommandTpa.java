@@ -18,34 +18,34 @@ public class CommandTpa implements CommandExecutor {
 			Player p = (Player) sender;
 			Account sender_account = Account.get(p.getUniqueId());
 			if (args.length == 0) {
-				p.sendMessage("§cLe format de la commande est /tpa [pseudo]");
+				p.sendMessage("Â§cLe format de la commande est /tpa [pseudo]");
 				return false;
 			}
 			Player target = Bukkit.getPlayer(args[0]);
 			if (target == null || !target.isOnline()) {
-				p.sendMessage("§cImpossible de trouver un compte avec ce pseudo connecté.");
+				p.sendMessage("Â§cImpossible de trouver un compte avec ce pseudo connectÃ©.");
 				return false;
 			}
 			if (p == target) {
-				p.sendMessage("§cVous ne pouvez pas vous téléporter à vous même !");
+				p.sendMessage("Â§cVous ne pouvez pas vous tÃ©lÃ©porter Ã  vous mÃªme !");
 				return false;
 			}
 			if (TPAQuery.get(p).isOnRequestCooldown(target)) {
-				p.sendMessage("§cUne requête a déjà été envoyée à cette personne il y a moins de 2 minutes.");
+				p.sendMessage("Â§cUne requÃªte a dÃ©jÃ  Ã©tÃ© envoyÃ©e Ã  cette personne il y a moins de 2 minutes.");
 				return false;
 			}
 			if (!sender_account.canTeleport()) {
-				p.sendMessage("§cVotre dernière téléportation date d'il y a moins de 5 minutes.");
+				p.sendMessage("Â§cVotre derniÃ¨re tÃ©lÃ©portation date d'il y a moins de 5 minutes.");
 				return false;
 			}
 			TPARequest.make().sender(p).target(target).execute();
 
-			p.sendMessage("§6Requête de téléportation envoyée à §e" + target.getName() + " §6!");
-			p.sendMessage("§6Pour annuler la requête, §e/tpcancel");
-			target.sendMessage("§e" + p.getName() + " §6veux ce téléporter à toi.");
-			target.sendMessage("§e> §a/tpaccept "+p.getName()+" §6pour accepter");
-			target.sendMessage("§e> §c/tpdeny "+p.getName()+" §6pour refuser");
-			target.sendMessage("§6La requête expirera dans §e120 secondes§6.");
+			p.sendMessage("Â§6RequÃªte de tÃ©lÃ©portation envoyÃ©e Ã  Â§e" + target.getName() + " Â§6!");
+			p.sendMessage("Â§6Pour annuler la requÃªte, Â§e/tpcancel");
+			target.sendMessage("Â§e" + p.getName() + " Â§6veux ce tÃ©lÃ©porter Ã  toi.");
+			target.sendMessage("Â§e> Â§a/tpaccept "+p.getName()+" Â§6pour accepter");
+			target.sendMessage("Â§e> Â§c/tpdeny "+p.getName()+" Â§6pour refuser");
+			target.sendMessage("Â§6La requÃªte expirera dans Â§e120 secondesÂ§6.");
 			return true;
 		}
 		return false;

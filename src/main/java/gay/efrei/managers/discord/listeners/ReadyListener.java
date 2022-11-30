@@ -8,7 +8,7 @@ public class ReadyListener extends ListenerAdapter{
 	
 	@Override
 	public void onReady(ReadyEvent event ) {
-		Discord.sendChatMessage(":green_circle: **Serveur lancé**");
+		Discord.sendChatMessage(":green_circle: **Serveur lancÃ©**");
 	}
 
 }

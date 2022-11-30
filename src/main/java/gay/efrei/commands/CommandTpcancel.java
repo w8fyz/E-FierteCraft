@@ -21,19 +21,19 @@ public class CommandTpcancel implements CommandExecutor {
 				targeter = Bukkit.getPlayer(args[0]);
 			}
 			if (targeter == null) {
-				p.sendMessage("§cImpossible de trouver un compte avec ce pseudo connecté.");
+				p.sendMessage("Â§cImpossible de trouver un compte avec ce pseudo connectÃ©.");
 				return false;
 			}
 			if(!targeter.isOnline()) {
-				p.sendMessage("§cLa personne n'est pas connectée.");
+				p.sendMessage("Â§cLa personne n'est pas connectÃ©e.");
 				return false;
 			}
 			if (!TPAQuery.get(p).isRequesting(targeter)) {
-				p.sendMessage("§cVous n'avez pas fait de demande de téléportation à cette personne.");
+				p.sendMessage("Â§cVous n'avez pas fait de demande de tÃ©lÃ©portation Ã  cette personne.");
 				return false;
 			}
 			TPAQuery.get(p).getRequesting(targeter).delete();
-			p.sendMessage("§6Téléportation annulée.");
+			p.sendMessage("Â§6TÃ©lÃ©portation annulÃ©e.");
 
 		}
 		return false;

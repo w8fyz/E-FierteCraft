@@ -13,8 +13,8 @@ public class RainListener implements Listener {
 	public void onWeatherChange(WeatherChangeEvent event) {
 		if(event.toWeatherState()) {
 			int goal = RainVote.start();
-			Bukkit.broadcastMessage("§bIl commence à pleuvoir !");
-			Bukkit.broadcastMessage("§b> Si §e"+goal+" §bpersonne"+(goal > 1 ? "s font" : " fait")+" la commande §e/voterain§b, le soleil reviendra.");
+			Bukkit.broadcastMessage("Â§bIl commence Ã  pleuvoir !");
+			Bukkit.broadcastMessage("Â§b> Si Â§e"+goal+" Â§bpersonne"+(goal > 1 ? "s font" : " fait")+" la commande Â§e/voterainÂ§b, le soleil reviendra.");
 		}
 	}
 

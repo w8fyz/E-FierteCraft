@@ -38,7 +38,7 @@ public class RainVote {
 				w.setThundering(false);
 				
 			}
-			Bukkit.broadcastMessage("§bLe soleil est de retour !");
+			Bukkit.broadcastMessage("Â§bLe soleil est de retour !");
 		}
 	}
 	

@@ -24,8 +24,8 @@ public class DeathChest {
 		}
 		loc.setType(Material.DARK_OAK_SIGN);
 		Sign sign = (Sign) loc;
-		sign.setLine(0, "ง8 - Tombe de -");
-		sign.setLine(1, "งc" + p.getName());
+		sign.setLine(0, "ยง8 - Tombe de -");
+		sign.setLine(1, "ยงc" + p.getName());
 		updateBlock(sign, p);
 
 	}

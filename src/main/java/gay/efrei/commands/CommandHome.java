@@ -22,19 +22,19 @@ public class CommandHome implements CommandExecutor, TabExecutor {
 			Account account = Account.get(p.getUniqueId());
 			if(args.length == 0) {
 				if(account.getHomes().isEmpty()) {
-					p.sendMessage("§cTu n'as aucun home.");
+					p.sendMessage("Â§cTu n'as aucun home.");
 					return false;
 				}
-				p.sendMessage("§6Liste de tes homes : ");
-				p.sendMessage("§6"+account.getFormatedHomes());
+				p.sendMessage("Â§6Liste de tes homes : ");
+				p.sendMessage("Â§6"+account.getFormatedHomes());
 				return true;
 			}
 			Home home = account.getHomeByName(args[0]);
 			if(home == null) {
-				p.sendMessage("§cTu n'as aucun home avec le nom \""+args[0]+"\".");
+				p.sendMessage("Â§cTu n'as aucun home avec le nom \""+args[0]+"\".");
 				return false;
 			}
-			p.sendMessage("§6Teleporation vers "+home.getName()+" !");
+			p.sendMessage("ï¿½6Teleporation vers "+home.getName()+" !");
 			p.teleport(home.getBukkitLocation());
 			p.playSound(p.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1, 1);
 			

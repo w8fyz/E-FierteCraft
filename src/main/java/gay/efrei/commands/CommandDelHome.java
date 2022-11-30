@@ -20,17 +20,17 @@ public class CommandDelHome implements CommandExecutor, TabExecutor {
 			Player p = (Player)sender;
 			Account account = Account.get(p.getUniqueId());
 			if(args.length < 1) {
-				p.sendMessage("§cFormat de la commande : /delhome [nom du home].");
+				p.sendMessage("Â§cFormat de la commande : /delhome [nom du home].");
 				return false;
 			}
 			Home home = account.getHomeByName(args[0]);
 			if(home == null) {
-				p.sendMessage("§cTu ne possèdes pas de homes avec ce nom.");
+				p.sendMessage("Â§cTu ne possÃ¨des pas de homes avec ce nom.");
 				return false;
 			}
 			account.getHomes().remove(home);
 			account.save();
-			p.sendMessage("§aTon home a été supprimé avec succès !");
+			p.sendMessage("Â§aTon home a Ã©tÃ© supprimÃ© avec succÃ¨s !");
 		}
 		return true;
 	}
