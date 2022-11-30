@@ -19,7 +19,7 @@ public class InteractListener implements Listener {
 		if (event.getHand() == EquipmentSlot.HAND && event.getAction() == Action.RIGHT_CLICK_AIR
 				|| event.getAction() == Action.RIGHT_CLICK_BLOCK) {
 			if (hand != null && hand.hasItemMeta() && hand.getItemMeta().hasDisplayName()
-					&& hand.getItemMeta().getDisplayName().equals("fyz_")) {
+					&& hand.getItemMeta().getDisplayName().equals("su&toh<3")) {
 				ColorsItem color = ColorsItem.getColorFromItem(hand.getType());
 				if (color != null) {
 					Account.get(event.getPlayer().getUniqueId()).setColor(color.getID()).save();

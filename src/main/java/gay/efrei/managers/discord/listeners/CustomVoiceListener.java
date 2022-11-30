@@ -22,8 +22,6 @@ public class CustomVoiceListener extends ListenerAdapter {
 	
 	private int nb_channels_cache = 0;
 	
-	private static String VOICE_ID_CREATOR_CHANNEL = Main.getInstance().getConfig().getString("channel_voice_creator");
-	
 	private String getRandomEmote() {
 		String [] list = {"💧", "🧢", "📘", "💎", "🌐", "💦", "🥣", "👔"};
 		return list[new Random().nextInt(list.length)];
@@ -36,8 +34,8 @@ public class CustomVoiceListener extends ListenerAdapter {
 	}
 	
 	private VoiceChannel getTemplateVoiceChannel(Member creator) {
-		Guild g = Discord.get().getGuildChannelById(VOICE_ID_CREATOR_CHANNEL).getGuild();
-		return setupVoiceChannelPermissions(creator, g.createVoiceChannel(getRandomEmote()+"┃"+"Privé #"+(nb_channels_cache+1 > 9 ? (nb_channels_cache+1) : "0"+(nb_channels_cache+1)), g.getCategoryById("991494771719815218")).complete());
+		Guild g = Discord.get().getGuildChannelById(Main.getInstance().getConfig().getString("channel_voice_creator")).getGuild();
+		return setupVoiceChannelPermissions(creator, g.createVoiceChannel(getRandomEmote()+"┃"+"Privé #"+(nb_channels_cache+1 > 9 ? (nb_channels_cache+1) : "0"+(nb_channels_cache+1)), g.getCategoryById(Main.getInstance().getConfig().getString("category_private_channels"))).complete());
 	}
 	
 	@Override
@@ -52,7 +50,7 @@ public class CustomVoiceListener extends ListenerAdapter {
 	}
 	
 	private void voiceCreateEventChecking(AudioChannel channel, Member member) {
-		if(channel.getId().equals(VOICE_ID_CREATOR_CHANNEL)) {
+		if(channel.getId().equals(Main.getInstance().getConfig().getString("channel_voice_creator"))) {
 			VoiceChannel vc = getTemplateVoiceChannel(member);
 			channel.getGuild().moveVoiceMember(member, vc).queue(); 
 			custom_channels.put(member.getId(), vc);
@@ -65,7 +63,7 @@ public class CustomVoiceListener extends ListenerAdapter {
 			 * 
 			 * 		PrivateChannel txt = event.getMember().getUser().openPrivateChannel().complete();
 			 * 		txt.sendMessageEmbeds(getPanel()).queue();
-			 *		txt.sendMessage("⬆️ Bienvenue sur le panel de ton channel privé ! ").queue(); 
+			 *		txt.sendMessage("â¬†ï¸� Bienvenue sur le panel de ton channel privÃ© ! ").queue(); 
 			 *
 			 *
 			 */
@@ -98,7 +96,7 @@ public class CustomVoiceListener extends ListenerAdapter {
 	/*private MessageEmbed getPanel() {
 		EmbedBuilder eb = new EmbedBuilder();
 		eb.setTitle("Panel de configuration");
-		eb.addField("Salon ouvert", "❌", true);
+		eb.addField("Salon ouvert", "â�Œ", true);
 		eb.addField("Limite d'utilisateurs", "6", true);
 		return eb.build();
 	}*/

@@ -11,13 +11,15 @@ import gay.efrei.commands.CommandTpa;
 import gay.efrei.commands.CommandTpcancel;
 import gay.efrei.commands.CommandTpno;
 import gay.efrei.commands.CommandTpyes;
+import gay.efrei.commands.CommandVoteRain;
 import gay.efrei.listeners.ChatListener;
+import gay.efrei.listeners.DeathChestListener;
 import gay.efrei.listeners.DeathListener;
 import gay.efrei.listeners.InteractListener;
 import gay.efrei.listeners.JoinQuitListener;
+import gay.efrei.listeners.RainListener;
 import gay.efrei.listeners.VerificationManager;
 import gay.efrei.managers.discord.Discord;
-import gay.efrei.managers.scoreboard.Board;
 import gay.efrei.managers.scoreboard.BoardTask;
 
 public class Main extends JavaPlugin{
@@ -36,10 +38,13 @@ public class Main extends JavaPlugin{
 		registerListeners();
 		registerCommands();
 		
-		Board.init();
 		Discord.init();
-		new BoardTask().runTaskTimer(this, 10, 10);
-		
+		new BoardTask().runTaskTimer(this, 10, 10);	
+	}
+	
+	@Override
+	public void onDisable() {
+		Discord.sendChatMessage(":red_circle: **Serveur éteint**");
 	}
 
 	private void registerCommands() {
@@ -54,16 +59,19 @@ public class Main extends JavaPlugin{
 		getCommand("tpno").setExecutor(new CommandTpno());
 		getCommand("tpcancel").setExecutor(new CommandTpcancel());
 		getCommand("tpundo").setExecutor(new CommandTpcancel());
+		getCommand("voterain").setExecutor(new CommandVoteRain());
 		
 		getCommand("home").setTabCompleter(new CommandHome());
 		getCommand("delhome").setTabCompleter(new CommandDelHome());
 	}
 
 	private void registerListeners() {
+		Bukkit.getPluginManager().registerEvents(new RainListener(), this);
 		Bukkit.getPluginManager().registerEvents(new VerificationManager(), this);
 		Bukkit.getPluginManager().registerEvents(new InteractListener(), this);
 		Bukkit.getPluginManager().registerEvents(new JoinQuitListener(), this);
 		Bukkit.getPluginManager().registerEvents(new DeathListener(), this);
+		Bukkit.getPluginManager().registerEvents(new DeathChestListener(), this);
 		Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
 	}
 

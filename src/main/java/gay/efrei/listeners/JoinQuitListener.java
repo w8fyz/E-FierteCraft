@@ -1,12 +1,14 @@
 package gay.efrei.listeners;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.ItemStack;
 
 import gay.efrei.account.Account;
 import gay.efrei.managers.player.PlayerDecoration;
@@ -24,9 +26,10 @@ public class JoinQuitListener implements Listener {
 				pls.playSound(pls.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
 			});
 			Bukkit.broadcastMessage("§eBienvenue à §6"+p.getName()+" §esur le serveur !");
+			p.getInventory().addItem(new ItemStack(Material.COOKED_BEEF, 32));
 		}
 		account.addPlayCount().save();
-		Board.set(p);
+		Board.update(p);
 		PlayerDecoration.update(p);
 	}
 	

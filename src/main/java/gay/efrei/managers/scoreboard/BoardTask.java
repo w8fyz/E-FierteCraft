@@ -6,7 +6,7 @@ public class BoardTask extends BukkitRunnable{
 
 	@Override
 	public void run() {
-		Board.update();
+		Board.updateAll();
 	}
 
 }

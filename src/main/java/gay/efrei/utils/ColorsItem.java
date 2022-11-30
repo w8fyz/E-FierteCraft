@@ -6,13 +6,13 @@ import org.bukkit.Material;
 
 public enum ColorsItem {
 	
-	BLACK(0, Material.INK_SAC, "§0"),
+	BLACK(0, Material.BLACK_DYE, "§0"),
 	BLUE(1, Material.BLUE_DYE, "§1"),
 	CYAN(2, Material.CYAN_DYE, "§3"),
 	GRAY(3, Material.GRAY_DYE, "§8"),
 	GREEN(4, Material.GREEN_DYE, "§2"),
 	LIGHT_BLUE(5, Material.LIGHT_BLUE_DYE, "§9"),
-	LIGHT_GRAY(6, Material.LIGHT_GRAY_DYE, "§7"),
+	LIGHT_GRAY(6, Material.GRAY_DYE, "§7"),
 	LIME(7, Material.LIME_DYE, "§a"),
 	ORANGE(9, Material.ORANGE_DYE, "§6"),
 	PINK(10, Material.PINK_DYE, "§d"),

@@ -20,14 +20,15 @@ public class CommandSetHome implements CommandExecutor {
 				p.sendMessage("§cFormat de la commande : /sethome [nom du home].");
 				return false;
 			}
-			if (account.getHomes().size() >= 3) {
-				p.sendMessage("§cLe nombre maximal de homes est de 3.");
-				return false;
-			}
 			if (account.getHomeByName(args[0]) != null) {
-				p.sendMessage("§cTu possèdes déjà un home avec ce nom.");
-				return false;
+				account.getHomes().remove(account.getHomeByName(args[0]));
+			} else {
+				if (account.getHomes().size() >= 3) {
+					p.sendMessage("§cLe nombre maximal de homes est de 3.");
+					return false;
+				}
 			}
+			
 			account.getHomes()
 					.add(new Home(args[0],
 							new HomeLocation(p.getLocation().getWorld().getName(), p.getLocation().getX(),

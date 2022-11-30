@@ -1,9 +1,13 @@
 package gay.efrei.managers.discord;
 
+import java.util.EnumSet;
+
 import javax.security.auth.login.LoginException;
 
 import gay.efrei.Main;
+import gay.efrei.managers.discord.listeners.CustomVoiceListener;
 import gay.efrei.managers.discord.listeners.MessageListener;
+import gay.efrei.managers.discord.listeners.ReadyListener;
 import gay.efrei.managers.discord.listeners.VerificationChannelListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -24,8 +28,8 @@ public class Discord {
 		try {
 			jda = JDABuilder.createDefault(Main.getInstance().getConfig().getString("discord_token"))
 					.setActivity(Activity.playing("efrei.gay"))
-					.addEventListeners(new VerificationChannelListener(), new MessageListener())
-					.enableIntents(GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_PRESENCES)
+					.addEventListeners(new ReadyListener(), new CustomVoiceListener(), new VerificationChannelListener(), new MessageListener())
+					.enableIntents(EnumSet.allOf(GatewayIntent.class))
 					.setMemberCachePolicy(MemberCachePolicy.ALL).build();
 		} catch (LoginException e) {
 			e.printStackTrace();
