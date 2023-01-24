@@ -3,7 +3,7 @@ package gay.efrei.managers.player;
 import java.util.HashMap;
 import java.util.UUID;
 
-import org.apache.commons.lang.RandomStringUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 
 public class Link {
 

@@ -16,3 +16,5 @@ commands:
   tpcancel:
   tpundo:
   voterain:
+  badge:
+  callreboot:

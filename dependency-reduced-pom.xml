@@ -4,32 +4,23 @@
   <groupId>EfierteCraft</groupId>
   <artifactId>EfierteCraft</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <artifactId>maven-shade-plugin</artifactId>
-          <version>3.2.4</version>
-          <executions>
-            <execution>
-              <phase>package</phase>
-              <goals>
-                <goal>shade</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
   <repositories>
     <repository>
-      <id>mrcubee-public</id>
-      <url>https://nexus.mrcubee.net/repository/minecraft/</url>
+      <id>spigot-repo</id>
+      <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
     </repository>
     <repository>
-      <id>jordanosterberg-repo</id>
-      <url>https://nexus-repo.jordanosterberg.com/repository/maven-releases/</url>
+      <id>dv8tion</id>
+      <name>m2-dv8tion</name>
+      <url>https://m2.dv8tion.net/releases</url>
     </repository>
   </repositories>
+  <dependencies>
+    <dependency>
+      <groupId>org.spigotmc</groupId>
+      <artifactId>spigot-api</artifactId>
+      <version>1.19.3-R0.1-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
 </project>

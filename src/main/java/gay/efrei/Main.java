@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import gay.efrei.commands.CommandBadge;
+import gay.efrei.commands.CommandCallReboot;
 import gay.efrei.commands.CommandDelHome;
 import gay.efrei.commands.CommandHome;
 import gay.efrei.commands.CommandPronouns;
@@ -20,6 +21,7 @@ import gay.efrei.listeners.JoinQuitListener;
 import gay.efrei.listeners.RainListener;
 import gay.efrei.listeners.VerificationManager;
 import gay.efrei.managers.discord.Discord;
+import gay.efrei.managers.discord.listeners.AdvancementListener;
 import gay.efrei.managers.scoreboard.BoardTask;
 
 public class Main extends JavaPlugin{
@@ -64,6 +66,7 @@ public class Main extends JavaPlugin{
 		getCommand("badge").setExecutor(new CommandBadge());
 		getCommand("home").setTabCompleter(new CommandHome());
 		getCommand("delhome").setTabCompleter(new CommandDelHome());
+		getCommand("callreboot").setExecutor(new CommandCallReboot());
 	}
 
 	private void registerListeners() {
@@ -73,6 +76,7 @@ public class Main extends JavaPlugin{
 		Bukkit.getPluginManager().registerEvents(new JoinQuitListener(), this);
 		Bukkit.getPluginManager().registerEvents(new DeathListener(), this);
 		Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
+		Bukkit.getPluginManager().registerEvents(new AdvancementListener(), this);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 
 import gay.efrei.account.Account;
+import gay.efrei.managers.discord.Discord;
 import gay.efrei.managers.player.PlayerDecoration;
 import gay.efrei.managers.scoreboard.Board;
 
@@ -31,12 +32,15 @@ public class JoinQuitListener implements Listener {
 		account.addPlayCount().save();
 		Board.update(p);
 		PlayerDecoration.update(p);
+		Discord.sendChatMessage("➕ **"+p.getName()+"**");
 	}
 	
 	@EventHandler
 	public void onQuit(PlayerQuitEvent e) {
 		Player p = e.getPlayer();
 		e.setQuitMessage("§c- §7"+p.getName());
+		
+		Discord.sendChatMessage("➖ **"+p.getName()+"**");
 	}
 
 }
