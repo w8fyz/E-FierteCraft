@@ -32,7 +32,7 @@ public class JoinQuitListener implements Listener {
 		account.addPlayCount().save();
 		Board.update(p);
 		PlayerDecoration.update(p);
-		Discord.sendChatMessage("➕ **"+p.getName()+"**");
+		Discord.sendChatMessage("**+** *"+p.getName()+"*");
 	}
 	
 	@EventHandler
@@ -40,7 +40,7 @@ public class JoinQuitListener implements Listener {
 		Player p = e.getPlayer();
 		e.setQuitMessage("§c- §7"+p.getName());
 		
-		Discord.sendChatMessage("➖ **"+p.getName()+"**");
+		Discord.sendChatMessage("**-** *"+p.getName()+"*");
 	}
 
 }
