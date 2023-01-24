@@ -37,7 +37,7 @@ public class Board {
 				"Home" + (account.getHomes().size() > 1 ? "s" : "") + ": §b" + account.getHomes().size(), "§c",
 				"En ligne" + (Bukkit.getOnlinePlayers().size() > 1 ? "s" : "") + ": §a"
 						+ Bukkit.getOnlinePlayers().size(),
-				"§f", "§7efrei.gay"));
+				"§f", "§7mc.efrei.gay"));
 
 	}
 
