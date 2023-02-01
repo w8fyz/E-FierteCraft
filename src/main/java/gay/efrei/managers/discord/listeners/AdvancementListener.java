@@ -7,10 +7,13 @@ import org.bukkit.event.player.PlayerAdvancementDoneEvent;
 import gay.efrei.managers.discord.Discord;
 
 public class AdvancementListener implements Listener {
-	
+
 	@EventHandler
 	public void onAdvancement(PlayerAdvancementDoneEvent event) {
-		Discord.sendChatMessage(":minidisc: **"+event.getPlayer().getName()+" a obtenu l'avancement \""+event.getAdvancement().getDisplay().getTitle()+"\" !**");
+		if (event.getAdvancement() != null && event.getAdvancement().getDisplay() != null) {
+			Discord.sendChatMessage(":minidisc: **" + event.getPlayer().getName() + " a obtenu l'avancement \""
+					+ event.getAdvancement().getDisplay().getTitle() + "\" !**");
+		}
 	}
 
 }

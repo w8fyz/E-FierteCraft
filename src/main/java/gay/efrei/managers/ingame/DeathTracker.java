@@ -19,7 +19,8 @@ public class DeathTracker {
 			Player pls = deathsIT.next();
 			pls.spigot().sendMessage(ChatMessageType.ACTION_BAR,
 					TextComponent.fromLegacyText(getDirectionFormated(pls)));
-			if (canStopTrack(pls) && !pls.isDead())
+			if (pls.getWorld().getName().equals(deaths.get(pls).getWorld().getName()) && canStopTrack(pls)
+					&& !pls.isDead())
 				deathsIT.remove();
 		}
 	}
